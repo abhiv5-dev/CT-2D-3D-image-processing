@@ -1,0 +1,9 @@
+#pragma once
+
+namespace ct {
+namespace embedded {
+
+inline constexpr const char* DEFAULT_PARAMS_JSON = R"JSON_EMBED(@CONFIG_JSON_CONTENT@)JSON_EMBED";
+
+} // namespace embedded
+} // namespace ct

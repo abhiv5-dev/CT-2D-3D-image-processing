@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0", "pybind11>=2.10.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ct"
+version = "1.0.0"
+description = "High-performance 2D and 3D CT Image Processing and Filtering library"
+authors = [{ name = "Abhishek" }]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "scipy",
+    "scikit-image",
+    "matplotlib",
+    "tifffile"
+]

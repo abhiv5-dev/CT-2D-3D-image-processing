@@ -1,0 +1,118 @@
+{
+  "_metadata": {
+    "description": "Calibrated noise-relative default filter parameters for ctfilter",
+    "calibration_date": "2026-10-26T11:39:36.343685+00:00",
+    "stack_slices_total": 847,
+    "tuning_block_indices": [
+      350,
+      358,
+      366,
+      374,
+      382,
+      390,
+      398,
+      406,
+      414,
+      422,
+      430,
+      438
+    ],
+    "selection_rule": "Maximize air-ROI noise reduction subject to edge broadening <= 10% on aligned rim and normalized leakage ratio <= 1.30x; if no candidate admissible, select candidate minimizing leakage subject to edge broadening <= 10% (marked 'no admissible setting; mildest/lowest-leakage default')",
+    "noise_estimator": "Immerkaer / Laplacian MAD: sigma_hat = median(|I * M|) / (0.67448975 * 6.0)"
+  },
+  "filters": {
+    "Gaussian": {
+      "selected_setting": "sigma=1.0",
+      "mean_air_noise_reduction_pct": 55.63,
+      "mean_edge_broadening_pct": 4.2,
+      "mean_structure_leakage_ratio": 1.951,
+      "mean_inner_leakage_ratio": 2.016,
+      "selection_rule": "uncalibrated practical default; no candidate met leakage <= 1.30x (calibrated minimum-leakage setting sigma=0.3 was near-identity with 1.19% noise reduction)",
+      "type": "uncalibrated",
+      "sigma": 1.0,
+      "radius": 3,
+      "calibrated_finding": "Grid search found sigma=0.3 minimizes leakage (1.715x) among broadening <= 10%, but achieves only 1.19% noise reduction. Sigma=1.0 provides 55.63% noise reduction with +4.20% broadening."
+    },
+    "Bilateral": {
+      "selected_setting": "m=3.0x",
+      "mean_air_noise_reduction_pct": 69.2,
+      "mean_edge_broadening_pct": -0.9,
+      "mean_structure_leakage_ratio": 1.204,
+      "mean_inner_leakage_ratio": 1.248,
+      "selection_rule": "Maximizes air noise reduction among candidates satisfying edge broadening <= 10% and leakage <= 1.30x",
+      "type": "noise_relative",
+      "multiple_sigma_hat": 3.0,
+      "sigma_spatial": 2.0,
+      "radius": 5
+    },
+    "Diffusion": {
+      "selected_setting": "m=1.5x,it=15",
+      "mean_air_noise_reduction_pct": 74.68,
+      "mean_edge_broadening_pct": -0.49,
+      "mean_structure_leakage_ratio": 1.248,
+      "mean_inner_leakage_ratio": 1.291,
+      "selection_rule": "Maximizes air noise reduction among candidates satisfying edge broadening <= 10% and leakage <= 1.30x",
+      "type": "noise_relative",
+      "multiple_sigma_hat": 1.5,
+      "iterations": 15,
+      "dt": 0.2
+    },
+    "Wiener": {
+      "selected_setting": "r=2",
+      "mean_air_noise_reduction_pct": 66.53,
+      "mean_edge_broadening_pct": 2.06,
+      "mean_structure_leakage_ratio": 1.175,
+      "mean_inner_leakage_ratio": 1.2,
+      "selection_rule": "Maximizes air noise reduction among candidates satisfying edge broadening <= 10% and leakage <= 1.30x",
+      "type": "window_radius",
+      "radius": 2,
+      "noise_variance": "automatic"
+    },
+    "Median": {
+      "selected_setting": "r=1",
+      "mean_air_noise_reduction_pct": 45.16,
+      "mean_edge_broadening_pct": 1.7,
+      "mean_structure_leakage_ratio": 2.019,
+      "mean_inner_leakage_ratio": 2.062,
+      "selection_rule": "uncalibrated default (single candidate r=1 px; no candidate met leakage <= 1.30x)",
+      "type": "uncalibrated",
+      "radius": 1
+    },
+    "Morphology": {
+      "selected_setting": "opening,r=1",
+      "mean_air_noise_reduction_pct": 41.9,
+      "mean_edge_broadening_pct": 1.15,
+      "mean_structure_leakage_ratio": 1.701,
+      "mean_inner_leakage_ratio": 1.732,
+      "selection_rule": "uncalibrated default (single candidate opening r=1 px; no candidate met leakage <= 1.30x)",
+      "type": "uncalibrated",
+      "operation": "opening",
+      "radius": 1,
+      "element": "box"
+    },
+    "TV_Chambolle": {
+      "selected_setting": "m=1.0x",
+      "mean_air_noise_reduction_pct": 73.99,
+      "mean_edge_broadening_pct": 1.05,
+      "mean_structure_leakage_ratio": 1.198,
+      "mean_inner_leakage_ratio": 1.228,
+      "selection_rule": "Maximizes air noise reduction among candidates satisfying edge broadening <= 10% and leakage <= 1.30x",
+      "type": "noise_relative",
+      "multiple_sigma_hat": 1.0,
+      "eps": 0.0002,
+      "max_iterations": 30
+    },
+    "NLM": {
+      "selected_setting": "m=0.75x",
+      "mean_air_noise_reduction_pct": 59.41,
+      "mean_edge_broadening_pct": 0.06,
+      "mean_structure_leakage_ratio": 1.406,
+      "mean_inner_leakage_ratio": 1.46,
+      "selection_rule": "no admissible setting; mildest/lowest-leakage default",
+      "type": "noise_relative",
+      "multiple_sigma_hat": 0.75,
+      "patch_radius": 2,
+      "search_radius": 5
+    }
+  }
+}
